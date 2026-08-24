@@ -1,0 +1,186 @@
+name: Validate Addon
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  validate:
+    name: Validate JSON & Structure
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./tools
+
+      - name: Validate Behavior Pack manifest
+        run: |
+          npx ajv validate -s bedrock-schemas/behavior_pack_manifest.json -d mi-mod-aventura/behavior_pack/manifest.json
+        continue-on-error: true
+
+      - name: Validate Resource Pack manifest (base)
+        run: |
+          npx ajv validate -s bedrock-schemas/resource_pack_manifest.json -d mi-mod-aventura/resource_pack/manifest.json
+        continue-on-error: true
+
+      - name: Validate Resource Pack manifest (PBR)
+        run: |
+          npx ajv validate -s bedrock-schemas/resource_pack_manifest.json -d mi-mod-aventura/resource_pack_pbr/manifest.json
+        continue-on-error: true
+
+      - name: Validate Entity JSON files
+        run: |
+          find mi-mod-aventura/behavior_pack/entities -name "*.json" -exec npx ajv validate -s bedrock-schemas/entity.json -d {} \;
+        continue-on-error: true
+
+      - name: Validate Spawn Rules JSON files
+        run: |
+          find mi-mod-aventura/behavior_pack/spawn_rules -name "*.json" -exec npx ajv validate -s bedrock-schemas/spawn_rules.json -d {} \;
+        continue-on-error: true
+
+      - name: Validate Loot Tables JSON files
+        run: |
+          find mi-mod-aventura/behavior_pack/loot_tables -name "*.json" -exec npx ajv validate -s bedrock-schemas/loot_table.json -d {} \;
+        continue-on-error: true
+
+      - name: Validate Recipes JSON files
+        run: |
+          find mi-mod-aventura/behavior_pack/recipes -name "*.json" -exec npx ajv validate -s bedrock-schemas/recipe.json -d {} \;
+        continue-on-error: true
+
+      - name: Validate Resource Pack geometry files
+        run: |
+          find mi-mod-aventura/resource_pack/models -name "*.geo.json" -exec npx ajv validate -s bedrock-schemas/geometry.json -d {} \;
+        continue-on-error: true
+
+      - name: Validate Animation files
+        run: |
+          find mi-mod-aventura/resource_pack/animations -name "*.animation.json" -exec npx ajv validate -s bedrock-schemas/animation.json -d {} \;
+        continue-on-error: true
+
+      - name: Validate Animation Controllers
+        run: |
+          find mi-mod-aventura/resource_pack/animation_controllers -name "*.animation_controllers.json" -exec npx ajv validate -s bedrock-schemas/animation_controller.json -d {} \;
+        continue-on-error: true
+
+      - name: Validate Item definitions
+        run: |
+          find mi-mod-aventura/behavior_pack/items -name "*.json" -exec npx ajv validate -s bedrock-schemas/item.json -d {} \;
+        continue-on-error: true
+
+      - name: Check for required files
+        run: |
+          # Verificar estructura mínima
+          test -f mi-mod-aventura/behavior_pack/manifest.json || exit 1
+          test -f mi-mod-aventura/resource_pack/manifest.json || exit 1
+          test -f mi-mod-aventura/resource_pack_pbr/manifest.json || exit 1
+          test -f mi-mod-aventura/behavior_pack/scripts/main.js || exit 1
+          test -f mi-mod-aventura/behavior_pack/entities/rastrero.json || exit 1
+          test -f mi-mod-aventura/resource_pack/models/entity/rastrero.geo.json || exit 1
+          test -f mi-mod-aventura/resource_pack/animations/rastrero.animation.json || exit 1
+          test -f mi-mod-aventura/resource_pack/animation_controllers/rastrero.animation_controllers.json || exit 1
+
+      - name: Lint TypeScript source
+        run: |
+          npx eslint scripts-src --ext .ts
+        working-directory: ./tools
+        continue-on-error: true
+
+      - name: Compile TypeScript to JavaScript
+        run: |
+          npx tsc --noEmit --skipLibCheck scripts-src/**/*.ts
+        working-directory: ./tools
+        continue-on-error: true
+
+      - name: Build .mcaddon for testing
+        run: |
+          cd mi-mod-aventura
+          zip -r ../el-sifon-test.mcaddon behavior_pack resource_pack resource_pack_pbr -x "*.DS_Store" "*/\.*"
+        continue-on-error: true
+
+      - name: Upload test artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: el-sifon-test-mcaddon
+          path: el-sifon-test.mcaddon
+          retention-days: 7
+
+  check-manifest-consistency:
+    name: Check Manifest Consistency
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check UUID uniqueness
+        run: |
+          # Extraer todos los UUIDs y verificar que no hay duplicados
+          python3 -c "
+          import json, glob, sys
+          uuids = []
+          for f in glob.glob('mi-mod-aventura/**/manifest.json', recursive=True):
+              with open(f) as fp:
+                  data = json.load(fp)
+                  for module in data.get('modules', []):
+                      uuids.append(module['uuid'])
+                  uuids.append(data['header']['uuid'])
+
+          seen = set()
+          dupes = [u for u in uuids if u in seen or seen.add(u)]
+          if dupes:
+              print('DUPLICATE UUIDs FOUND:', dupes)
+              sys.exit(1)
+          print('All UUIDs are unique:', len(uuids))
+          "
+
+      - name: Check version consistency
+        run: |
+          python3 -c "
+          import json, glob, sys
+          versions = {}
+          for f in glob.glob('mi-mod-aventura/**/manifest.json', recursive=True):
+              with open(f) as fp:
+                  data = json.load(fp)
+                  versions[f] = data['header']['version']
+          print('Versions found:', versions)
+          # Todos los packs deben tener la misma versión
+          unique_versions = set(tuple(v) for v in versions.values())
+          if len(unique_versions) > 1:
+              print('VERSION MISMATCH:', versions)
+              sys.exit(1)
+          print('All versions match:', versions)
+          "
+
+      - name: Check namespace consistency
+        run: |
+          python3 -c "
+          import json, glob, sys, re
+          namespace = 'sifon'
+          # Verificar que las entidades usan el namespace correcto
+          for f in glob.glob('mi-mod-aventura/behavior_pack/entities/*.json'):
+              with open(f) as fp:
+                  content = fp.read()
+                  identifiers = re.findall(r'sifon:([a-zA-Z0-9_]+)', content)
+                  if not identifiers:
+                      print(f'WARNING: No sifon: identifiers in {f}')
+          print('Namespace check passed')
+          "

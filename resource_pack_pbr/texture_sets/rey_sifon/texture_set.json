@@ -1,0 +1,57 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:rey_sifon"
+    },
+    "textures": {
+      "base": "textures/entity/rey_sifon",
+      "normal": "textures/entity/rey_sifon_normal",
+      "height": "textures/entity/rey_sifon_height",
+      "mer": "textures/entity/rey_sifon_mer",
+      "subsurface": "textures/entity/rey_sifon_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true
+      },
+      "corruption_mass": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.6,
+        "metalness": 0.0
+      },
+      "trapped_light_veins": {
+        "render_method": "translucent",
+        "face_culling": false,
+        "ambient_occlusion": true,
+        "subsurface_scattering": 0.9,
+        "subsurface_color": [1.0, 0.9, 0.7],
+        "emissive_intensity": 4.0,
+        "roughness": 0.05,
+        "metalness": 0.0
+      },
+      "phase1_arena": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "emissive_intensity": 1.0
+      },
+      "phase2_arena": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "emissive_intensity": 2.0
+      },
+      "phase3_arena": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "emissive_intensity": 3.0
+      }
+    }
+  }
+}

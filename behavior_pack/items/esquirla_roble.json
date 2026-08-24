@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sifon:esquirla_roble",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "§aEsquirla del Roble"
+      },
+      "minecraft:icon": {
+        "texture": "esquirla_roble"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.nature"
+      },
+      "minecraft:glint": true,
+      "minecraft:rarity": "epic"
+    }
+  }
+}

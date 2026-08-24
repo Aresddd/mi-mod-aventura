@@ -1,0 +1,84 @@
+# El Sifón - English Translations
+
+# Entity Names
+entity.sifon:rastrero.name=Rastrero
+entity.sifon:guardián_perjuro.name=The Perjured Guardian
+entity.sifon:doncella_cristal.name=Crystal Maiden
+entity.sifon:roble_devorado.name=Devoured Oak
+entity.sifon:rey_sifon.name=The Siphon King
+entity.sifon:centinela_oxidado.name=Rusted Sentinel
+entity.sifon:espina_reina.name=Spine Queen
+entity.sifon:fauno_quebrado.name=Broken Fawn
+entity.sifon:motas_luz.name=Light Mote
+entity.sifon:aldeanos_sifonados.name=Siphoned Villager
+
+# Item Names
+item.sifon:rastrero_trophy.name=Rastrero Trophy
+item.sifon:corrupted_essence.name=Corrupted Essence
+item.sifon:esquirla_guardián.name=Guardian's Shard
+item.sifon:esquirla_doncella.name=Maiden's Shard
+item.sifon:esquirla_roble.name=Oak's Shard
+item.sifon:llave_rey_sifon.name=Key to the Siphon's Heart
+item.sifon:espada_luz_pura.name=Pure Light Sword
+item.sifon:armadura_luz_casco.name=Pure Light Helmet
+item.sifon:armadura_luz_peto.name=Pure Light Chestplate
+item.sifon:armadura_luz_leggings.name=Pure Light Leggings
+item.sifon:armadura_luz_botas.name=Pure Light Boots
+
+# Item Descriptions (shown in tooltip)
+item.sifon:rastrero_trophy.description=Proof of defeating a Rastrero. Can be used for decorative crafting.
+item.sifon:corrupted_essence.description=Residue of the Siphon's corruption. Useful for crafting anti-corruption gear.
+item.sifon:esquirla_guardián.description=Fragment of pure light extracted from the Perjured Guardian. One of three keys to face the Siphon King.
+item.sifon:esquirla_doncella.description=Fragment of pure light extracted from the Crystal Maiden. One of three keys to face the Siphon King.
+item.sifon:esquirla_roble.description=Fragment of pure light extracted from the Devoured Oak. One of three keys to face the Siphon King.
+item.sifon:llave_rey_sifon.description=The three shards of pure light have fused. Opens the path to the heart of corruption.
+item.sifon:espada_luz_pura.description=Forged with shards of pure light. Deals massive damage to corrupted entities.
+item.sifon:armadura_luz_casco.description=Protects against the Siphon's corruption.
+item.sifon:armadura_luz_peto.description=Protects against the Siphon's corruption.
+item.sifon:armadura_luz_leggings.description=Protects against the Siphon's corruption.
+item.sifon:armadura_luz_botas.description=Protects against the Siphon's corruption.
+
+# Spawn Eggs
+spawn_egg.sifon:rastrero.name=Spawn Rastrero
+spawn_egg.sifon:guardián_perjuro.name=Spawn Perjured Guardian
+spawn_egg.sifon:doncella_cristal.name=Spawn Crystal Maiden
+spawn_egg.sifon:roble_devorado.name=Spawn Devoured Oak
+spawn_egg.sifon:rey_sifon.name=Spawn Siphon King
+spawn_egg.sifon:centinela_oxidado.name=Spawn Rusted Sentinel
+spawn_egg.sifon:espina_reina.name=Spawn Spine Queen
+spawn_egg.sifon:fauno_quebrado.name=Spawn Broken Fawn
+spawn_egg.sifon:motas_luz.name=Spawn Light Mote
+spawn_egg.sifon:aldeanos_sifonados.name=Spawn Siphoned Villager
+
+# Scoreboard
+scoreboard.sifon_progress=El Sifón Progress
+
+# Commands & Messages
+command.sifon.help=§b§l=== El Sifón - Commands ===\n§e!sifon progress§r - View your current quest progress\n§e!sifon help§r - Show this help\n§7(Admin commands: reset, spawn <entity>)
+command.sifon.progress.title=§b§lEl Sifón - Progress
+command.sifon.progress.body=§rCurrent Phase: %s\n\n§7Objective: Cleanse corrupted zones by defeating bosses.\nEach boss drops a shard of pure light.\nThree shards open the path to the Siphon's heart.
+command.sifon.reset.success=Progress reset.
+command.sifon.reset.no_permission=You don't have permission.
+command.sifon.spawn.success=Entity %s summoned.
+command.sifon.spawn.invalid=Invalid entity. Options: rastrero, guardián_perjuro, doncella_cristal, roble_devorado, rey_sifon, centinela_oxidado, espina_reina, fauno_quebrado, motas_luz, aldeanos_sifonados
+command.sifon.spawn.no_permission=You don't have permission.
+
+# Quest Phases
+quest.phase.inicio=§7Beginning - Seek the Sanctuary
+quest.phase.guardián_derrotado=§aPerjured Guardian §r§7defeated - Seek the Ruined Sanctuary
+quest.phase.doncella_derrotada=§aCrystal Maiden §r§7defeated - Seek the Corrupted Forest
+quest.phase.roble_derrotado=§aDevoured Oak §r§7defeated - §dThe Siphon King is now accessible!
+quest.phase.rey_sifon_desbloqueado=§d§lSIPHON KING UNLOCKED§r - Use the key to access
+quest.phase.rey_sifon_derrotado=§6§lVICTORY!§r The Siphon has been stopped... for now.
+
+# System Messages
+message.sifon.welcome=§b§l[El Sifón] §r§7Welcome. The corruption spreads beneath the earth...\n§7Defeat the §cPerjured Guardian§7 at the sanctuary to begin your path.
+message.sifon.shard_obtained=§b§l[El Sifón] §rYou obtained: §6%s§r
+message.sifon.three_shards=§b§l[El Sifón] §r§eThe three shards of pure light have fused!\n§d§lThe key to the heart of the Siphon has appeared in your inventory.§r
+message.sifon.boss_defeated=§b§l[El Sifón] §r§a%s §r§7has been defeated!
+message.sifon.zone_cleansed=§b§l[El Sifón] §r§aZone cleansed! §r§7The corruption retreats.
+
+# Biome Tags (for spawn rules)
+biome.tag.overworld=Overworld
+biome.tag.nether=Nether
+biome.tag.the_end=The End

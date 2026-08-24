@@ -1,0 +1,18 @@
+{
+  "format_version": "1.21.0",
+  "animations": {
+    "animation.common.look_at_target": {
+      "loop": true,
+      "animation_length": 0.1,
+      "bones": {
+        "head": {
+          "rotation": [
+            "query.target_x_rotation",
+            "query.target_y_rotation",
+            0
+          ]
+        }
+      }
+    }
+  }
+}

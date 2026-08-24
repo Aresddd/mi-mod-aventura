@@ -1,0 +1,39 @@
+{
+  "format_version": "1.21.0",
+  "resource_pack_name": "El Sifón - Items",
+  "texture_data": {
+    "rastrero_trophy": {
+      "textures": "textures/items/rastrero_trophy"
+    },
+    "corrupted_essence": {
+      "textures": "textures/items/corrupted_essence"
+    },
+    "esquirla_guardián": {
+      "textures": "textures/items/esquirla_guardián"
+    },
+    "esquirla_doncella": {
+      "textures": "textures/items/esquirla_doncella"
+    },
+    "esquirla_roble": {
+      "textures": "textures/items/esquirla_roble"
+    },
+    "llave_rey_sifon": {
+      "textures": "textures/items/llave_rey_sifon"
+    },
+    "espada_luz_pura": {
+      "textures": "textures/items/espada_luz_pura"
+    },
+    "armadura_luz_casco": {
+      "textures": "textures/items/armadura_luz_casco"
+    },
+    "armadura_luz_peto": {
+      "textures": "textures/items/armadura_luz_peto"
+    },
+    "armadura_luz_leggings": {
+      "textures": "textures/items/armadura_luz_leggings"
+    },
+    "armadura_luz_botas": {
+      "textures": "textures/items/armadura_luz_botas"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:languages": [
+    {
+      "code": "en_US",
+      "name": "English (US)",
+      "native_name": "English (US)"
+    },
+    {
+      "code": "es_ES",
+      "name": "Spanish (Spain)",
+      "native_name": "Español (España)"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sifon:rastrero",
+      "materials": {
+        "default": "entity_alphatest",
+        "corrupted": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/rastrero",
+        "corrupted": "textures/entity/rastrero_corrupted"
+      },
+      "geometry": {
+        "default": "geometry.rastrero"
+      },
+      "animations": {
+        "move": "animation.rastrero.move",
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.rastrero.idle",
+        "attack": "animation.rastrero.attack",
+        "death": "animation.rastrero.death"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.rastrero.general"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.rastrero"
+      ],
+      "spawn_egg": {
+        "base_color": "#1a1a2e",
+        "overlay_color": "#7b2cbf"
+      }
+    }
+  }
+}

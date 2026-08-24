@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sifon:esquirla_doncella",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "§bEsquirla de la Doncella"
+      },
+      "minecraft:icon": {
+        "texture": "esquirla_doncella"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.nature"
+      },
+      "minecraft:glint": true,
+      "minecraft:rarity": "epic"
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "format_version": "1.21.0",
+  "animation_controllers": {
+    "controller.animation.rastrero.general": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["idle"],
+          "transitions": [
+            {
+              "move": "query.is_moving"
+            },
+            {
+              "attack": "query.has_target && query.attack_time > 0"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "move": {
+          "animations": ["move"],
+          "transitions": [
+            {
+              "idle": "!query.is_moving"
+            },
+            {
+              "attack": "query.has_target && query.attack_time > 0"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "attack": {
+          "animations": ["attack"],
+          "transitions": [
+            {
+              "idle": "!query.has_target || query.attack_time <= 0"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "death": {
+          "animations": ["death"],
+          "transitions": []
+        }
+      }
+    }
+  }
+}

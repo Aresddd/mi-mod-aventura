@@ -1,0 +1,44 @@
+{
+  "format_version": "1.21.0",
+  "materials": {
+    "entity_alphatest_emissive": {
+      "vertex_fields": [
+        { "name": "Position", "type": "float3" },
+        { "name": "Normal", "type": "float3" },
+        { "name": "UV0", "type": "float2" },
+        { "name": "Color", "type": "uint" },
+        { "name": "BoneIndices", "type": "uint" },
+        { "name": "BoneWeights", "type": "float4" }
+      ],
+      "variants": [
+        {
+          "skinning": {
+            "+": ["USE_SKINNING", "USE_OVERLAY", "USE_UV_ANIM", "USE_EMISSIVE"]
+          }
+        },
+        {
+          "!skinning": {
+            "+": ["USE_OVERLAY", "USE_UV_ANIM", "USE_EMISSIVE"]
+          }
+        }
+      ],
+      "msaa_support": true,
+      "+defines": [
+        "ALPHA_TEST",
+        "USE_OVERLAY",
+        "USE_UV_ANIM",
+        "USE_EMISSIVE"
+      ],
+      "sampler_states": {
+        "sampler0": "clamp_point",
+        "sampler1": "clamp_point"
+      },
+      "render_states": {
+        "blend": "disable",
+        "depth_write": "enable",
+        "depth_func": "less_equal",
+        "cull_mode": "cull_clockwise"
+      }
+    }
+  }
+}

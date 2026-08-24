@@ -1,0 +1,23 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:item": {
+    "description": {
+      "identifier": "sifon:esquirla_guardián",
+      "category": "nature"
+    },
+    "components": {
+      "minecraft:max_stack_size": 1,
+      "minecraft:display_name": {
+        "value": "§6Esquirla del Guardián"
+      },
+      "minecraft:icon": {
+        "texture": "esquirla_guardián"
+      },
+      "minecraft:creative_category": {
+        "parent": "itemGroup.name.nature"
+      },
+      "minecraft:glint": true,
+      "minecraft:rarity": "epic"
+    }
+  }
+}

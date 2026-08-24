@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "El Sifón - Resource Pack (Base)",
+    "description": "Resource pack base del addon El Sifón. Compatible con Actions & Stuff (NO tocar player.json ni animaciones vanilla). Namespace: sifon",
+    "uuid": "d3e4f5a6-b7c8-9012-defa-456789012345",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 60]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "e4f5a6b7-c8d9-0123-efab-567890123456",
+      "version": [1, 0, 0]
+    }
+  ]
+}

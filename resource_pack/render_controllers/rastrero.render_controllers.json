@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.0",
+  "render_controllers": {
+    "controller.render.rastrero": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        },
+        {
+          "corruption_tendril*": "Material.corrupted"
+        }
+      ],
+      "textures": [
+        "Texture.default",
+        {
+          "corruption_tendril*": "Texture.corrupted"
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 1.0
+      }
+    }
+  }
+}

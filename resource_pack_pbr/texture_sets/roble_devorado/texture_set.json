@@ -1,0 +1,53 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:roble_devorado"
+    },
+    "textures": {
+      "base": "textures/entity/roble_devorado",
+      "normal": "textures/entity/roble_devorado_normal",
+      "height": "textures/entity/roble_devorado_height",
+      "mer": "textures/entity/roble_devorado_mer",
+      "subsurface": "textures/entity/roble_devorado_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true
+      },
+      "bark_healthy": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.8,
+        "metalness": 0.0
+      },
+      "bark_corrupted": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "emissive_intensity": 2.0,
+        "roughness": 0.5,
+        "metalness": 0.0
+      },
+      "leaves_golden": {
+        "render_method": "alpha_test",
+        "face_culling": false,
+        "ambient_occlusion": false,
+        "emissive_intensity": 1.0,
+        "roughness": 0.4,
+        "metalness": 0.0
+      },
+      "roots_corrupted": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "emissive_intensity": 2.5,
+        "roughness": 0.3,
+        "metalness": 0.0
+      }
+    }
+  }
+}

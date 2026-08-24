@@ -1,0 +1,52 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:guardián_perjuro"
+    },
+    "textures": {
+      "base": "textures/entity/guardián_perjuro",
+      "normal": "textures/entity/guardián_perjuro_normal",
+      "height": "textures/entity/guardián_perjuro_height",
+      "mer": "textures/entity/guardián_perjuro_mer",
+      "subsurface": "textures/entity/guardián_perjuro_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true
+      },
+      "armor_golden": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "metalness": 0.9,
+        "roughness": 0.1
+      },
+      "armor_corrupted": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "emissive_intensity": 3.0,
+        "metalness": 0.7,
+        "roughness": 0.4
+      },
+      "weapon_golden": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "metalness": 0.95,
+        "roughness": 0.05
+      },
+      "weapon_corrupted": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "emissive_intensity": 2.5,
+        "metalness": 0.6,
+        "roughness": 0.5
+      }
+    }
+  }
+}

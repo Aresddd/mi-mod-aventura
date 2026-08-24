@@ -1,0 +1,199 @@
+name: Release Addon
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  build-and-release:
+    name: Build and Release .mcaddon
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          VERSION="${TAG#v}"
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+
+      - name: Update manifest versions
+        run: |
+          python3 -c "
+          import json, sys
+          version_parts = '${{ steps.version.outputs.version }}'.split('.')
+          version_array = [int(p) for p in version_parts]
+
+          for manifest_path in [
+              'mi-mod-aventura/behavior_pack/manifest.json',
+              'mi-mod-aventura/resource_pack/manifest.json',
+              'mi-mod-aventura/resource_pack_pbr/manifest.json'
+          ]:
+              with open(manifest_path) as f:
+                  data = json.load(f)
+              data['header']['version'] = version_array
+              for module in data.get('modules', []):
+                  module['version'] = version_array
+              with open(manifest_path, 'w') as f:
+                  json.dump(data, f, indent=2)
+              print(f'Updated {manifest_path} to {version_array}')
+          "
+
+      - name: Validate updated manifests
+        run: |
+          python3 -c "
+          import json, glob
+          for f in glob.glob('mi-mod-aventura/**/manifest.json', recursive=True):
+              with open(f) as fp:
+                  data = json.load(fp)
+              print(f'{f}: v{data[\"header\"][\"version\"]} - {data[\"header\"][\"name\"]}')
+          "
+
+      - name: Create Behavior Pack .mcpack
+        run: |
+          cd mi-mod-aventura/behavior_pack
+          zip -r ../../el-sifon-behavior-${{ steps.version.outputs.version }}.mcpack . -x "*.DS_Store" "*/\.*"
+
+      - name: Create Resource Pack (base) .mcpack
+        run: |
+          cd mi-mod-aventura/resource_pack
+          zip -r ../../el-sifon-resource-base-${{ steps.version.outputs.version }}.mcpack . -x "*.DS_Store" "*/\.*"
+
+      - name: Create Resource Pack (PBR) .mcpack
+        run: |
+          cd mi-mod-aventura/resource_pack_pbr
+          zip -r ../../el-sifon-resource-pbr-${{ steps.version.outputs.version }}.mcpack . -x "*.DS_Store" "*/\.*"
+
+      - name: Create Combined .mcaddon (all three packs)
+        run: |
+          cd mi-mod-aventura
+          zip -r ../el-sifon-complete-${{ steps.version.outputs.version }}.mcaddon behavior_pack resource_pack resource_pack_pbr -x "*.DS_Store" "*/\.*"
+
+      - name: Create Separate Distribution .mcaddon (base only, for Actions & Stuff compatibility)
+        run: |
+          cd mi-mod-aventura
+          zip -r ../el-sifon-base-only-${{ steps.version.outputs.version }}.mcaddon behavior_pack resource_pack -x "*.DS_Store" "*/\.*"
+
+      - name: Generate Release Notes
+        id: release_notes
+        run: |
+          cat << 'EOF' > release_notes.md
+          # El Sifón v${{ steps.version.outputs.version }}
+
+          ## 📦 Contenido del Release
+
+          Este release incluye **tres packs** que se pueden instalar según tus preferencias:
+
+          ### Opción A: Pack Completo (Recomendado para juego solo)
+          - **`el-sifon-complete-${{ steps.version.outputs.version }}.mcaddon`**
+          - Incluye: Behavior Pack + Resource Pack Base + Resource Pack PBR
+          - Activa Vibrant Visuals automáticamente
+          - **NO compatible con Actions & Stuff**
+
+          ### Opción B: Solo Aventura (Compatible con Actions & Stuff)
+          - **`el-sifon-base-only-${{ steps.version.outputs.version }}.mcaddon`**
+          - Incluye: Behavior Pack + Resource Pack Base
+          - **Compatible con Actions & Stuff** (Oreville Studios)
+          - Sin Vibrant Visuals / PBR
+
+          ### Opción C: Packs Individuales (Avanzado)
+          - `el-sifon-behavior-${{ steps.version.outputs.version }}.mcpack` - Solo comportamiento/scripts
+          - `el-sifon-resource-base-${{ steps.version.outputs.version }}.mcpack` - Solo recursos base
+          - `el-sifon-resource-pbr-${{ steps.version.outputs.version }}.mcpack` - Solo capa PBR/Vibrant Visuals
+
+          ## 🎮 Contenido Implementado (v${{ steps.version.outputs.version }})
+
+          ### Mobs Comunes
+          - **Rastreros** - Enemigos básicos de sustancia oscura, spawn en grupos (2-4)
+
+          ### Sistema de Progresión
+          - Script API con dynamic properties para tracking por jugador
+          - 6 fases de misión: Inicio → 3 Jefes → Rey Sifón → Victoria
+          - Items de progresión: 3 Esquirlas + Llave del Rey Sifón
+          - Comandos: `!sifon progreso`, `!sifon ayuda`
+
+          ### Ítems
+          - Esencia Corrupta (drop común)
+          - Trofeo de Rastrero (drop raro)
+          - 3 Esquirlas de Luz Pura (drops de jefes)
+          - Llave del Corazón del Sifón (craft con 3 esquirlas)
+          - Set de armadura/arma de Luz Pura (crafting futuro)
+
+          ## ⚙️ Instalación
+
+          1. Descarga el `.mcaddon` deseado
+          2. Ábrelo en Minecraft Bedrock (clic doble o "Importar")
+          3. Activa en **Ajustes > Perfil > Paquetes de complementos**
+          4. **Para PBR**: Activa "Vibrant Visuals" en Ajustes > Video
+
+          ## ⚠️ Compatibilidad Importante
+
+          | Pack | Actions & Stuff | Vibrant Visuals |
+          |------|----------------|-----------------|
+          | Complete | ❌ No | ✅ Sí (requerido) |
+          | Base Only | ✅ Sí | ❌ No |
+          | Base + PBR (separados) | ✅ Sí* | ✅ Sí* |
+
+          *Instalando resource_pack y resource_pack_pbr por separado, activando solo uno a la vez.
+
+          ## 🐛 Reportar Bugs
+
+          [Abrir Issue](../../issues/new?template=bug_report.yml)
+
+          ## 📋 Changelog Completo
+
+          Ver [CHANGELOG.md](../blob/main/CHANGELOG.md)
+
+          ---
+          **Desarrollado con** ❤️ **para Minecraft Bedrock Edition**
+          EOF
+
+          cat release_notes.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: El Sifón v${{ steps.version.outputs.version }}
+          body_path: release_notes.md
+          files: |
+            el-sifon-complete-${{ steps.version.outputs.version }}.mcaddon
+            el-sifon-base-only-${{ steps.version.outputs.version }}.mcaddon
+            el-sifon-behavior-${{ steps.version.outputs.version }}.mcpack
+            el-sifon-resource-base-${{ steps.version.outputs.version }}.mcpack
+            el-sifon-resource-pbr-${{ steps.version.outputs.version }}.mcpack
+          draft: false
+          prerelease: false
+          generate_release_notes: false
+
+      - name: Upload all artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: el-sifon-release-${{ steps.version.outputs.version }}
+          path: |
+            el-sifon-*.mcaddon
+            el-sifon-*.mcpack
+            release_notes.md
+          retention-days: 30
+
+  notify:
+    name: Notify Completion
+    needs: build-and-release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Done
+        run: |
+          echo "✅ Release v${{ steps.version.outputs.version }} publicado exitosamente"
+          echo "📦 Assets disponibles en la release de GitHub"

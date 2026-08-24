@@ -1,0 +1,52 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:doncella_cristal"
+    },
+    "textures": {
+      "base": "textures/entity/doncella_cristal",
+      "normal": "textures/entity/doncella_cristal_normal",
+      "height": "textures/entity/doncella_cristal_height",
+      "mer": "textures/entity/doncella_cristal_mer",
+      "subsurface": "textures/entity/doncella_cristal_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "translucent",
+        "face_culling": false,
+        "ambient_occlusion": true,
+        "subsurface_scattering": 0.8,
+        "subsurface_color": [1.0, 0.95, 0.8]
+      },
+      "crystal_intact": {
+        "render_method": "translucent",
+        "face_culling": false,
+        "ambient_occlusion": true,
+        "subsurface_scattering": 1.0,
+        "subsurface_color": [1.0, 0.98, 0.9],
+        "emissive_intensity": 1.5,
+        "roughness": 0.05,
+        "metalness": 0.0
+      },
+      "crystal_corrupted": {
+        "render_method": "translucent",
+        "face_culling": false,
+        "ambient_occlusion": true,
+        "subsurface_scattering": 0.3,
+        "subsurface_color": [0.1, 0.05, 0.15],
+        "emissive_intensity": 2.5,
+        "roughness": 0.3,
+        "metalness": 0.0
+      },
+      "shard_projectile": {
+        "render_method": "translucent",
+        "face_culling": false,
+        "ambient_occlusion": true,
+        "subsurface_scattering": 0.9,
+        "emissive_intensity": 3.0,
+        "roughness": 0.1
+      }
+    }
+  }
+}
