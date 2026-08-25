@@ -1,0 +1,128 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sifon:mota_luz",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "look_at_target"
+        ]
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.mota_luz.idle",
+        "move": "animation.mota_luz.move",
+        "flee": "animation.mota_luz.flee"
+      },
+      "animation_controllers": [
+        {
+          "controller.animation.mota_luz.general": "controller.animation.mota_luz.general"
+        }
+      ],
+      "geometry": {
+        "default": "geometry.mota_luz"
+      },
+      "materials": {
+        "default": "entity_alphatest_emissive",
+        "core": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/mota_luz"
+      },
+      "spawn_egg": {
+        "base_color": "#fff8dc",
+        "overlay_color": "#ffd700"
+      }
+    },
+    "component_groups": {},
+    "components": {
+      "minecraft:type_family": {
+        "family": ["mota_luz", "passive", "ambient", "sifon_pure"]
+      },
+      "minecraft:health": {
+        "value": 4,
+        "max": 4
+      },
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.4
+      },
+      "minecraft:movement": {
+        "value": 0.2
+      },
+      "minecraft:navigation.fly": {
+        "can_path_over_water": true,
+        "can_pass_doors": true,
+        "avoid_water": false,
+        "can_open_doors": false
+      },
+      "minecraft:jump.static": {},
+      "minecraft:knockback_resistance": {
+        "value": 0.0
+      },
+      "minecraft:follow_range": {
+        "value": 10
+      },
+      "minecraft:persistent": false,
+      "minecraft:fire_immune": false,
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:nameable": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 1 : 0"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/mota_luz.json"
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.flee_sun": {
+        "priority": 1,
+        "speed_multiplier": 1.5
+      },
+      "minecraft:behavior.move_away_from_target": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "distance": 8.0,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "sifon_corrupted"
+            }
+          }
+        ],
+        "must_see": false
+      },
+      "minecraft:behavior.random_fly": {
+        "priority": 3,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 4,
+        "look_distance": 8
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 5
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "particle minecraft:end_rod ~ ~ ~ 0.2 0.2 0.2 0.01 5"
+          ]
+        }
+      }
+    }
+  }
+}

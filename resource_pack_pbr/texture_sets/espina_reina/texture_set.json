@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:espina_reina"
+    },
+    "textures": {
+      "base": "textures/entity/espina_reina",
+      "normal": "textures/entity/espina_reina_normal",
+      "height": "textures/entity/espina_reina_height",
+      "mer": "textures/entity/espina_reina_mer",
+      "subsurface": "textures/entity/espina_reina_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true
+      },
+      "carapace_healthy": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.3,
+        "metalness": 0.1
+      },
+      "carapace_cracked": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.8,
+        "metalness": 0.0,
+        "emissive_intensity": 0.5
+      }
+    }
+  }
+}

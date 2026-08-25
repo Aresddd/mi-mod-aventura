@@ -1,0 +1,40 @@
+{
+  "format_version": "1.21.0",
+  "render_controllers": {
+    "controller.render.fauno_quebrado": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        },
+        {
+          "body": "Material.default",
+          "neck": "Material.default",
+          "head": "Material.default",
+          "leg_fl": "Material.default",
+          "leg_fr": "Material.default",
+          "leg_rl": "Material.default",
+          "leg_rr": "Material.default",
+          "tail": "Material.default"
+        },
+        {
+          "antler_left_normal": "Material.antler_normal",
+          "antler_right_normal": "Material.antler_normal"
+        },
+        {
+          "antler_left_crystal": "Material.antler_crystal",
+          "antler_right_crystal": "Material.antler_crystal"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 1.0
+      }
+    }
+  }
+}

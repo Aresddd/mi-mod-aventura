@@ -4,12 +4,15 @@
  */
 
 import { readFileSync, readdirSync, statSync } from "fs";
-import { join, extname, relative } from "path";
+import { join, extname, relative, dirname } from "path";
+import { fileURLToPath } from "url";
 import Ajv from "ajv";
 
 const ajv = new Ajv({ allErrors: true, strict: false });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 const PROJECT_ROOT = join(__dirname, "..");
-const ADDON_ROOT = join(PROJECT_ROOT, "mi-mod-aventura");
+const ADDON_ROOT = PROJECT_ROOT; // PROJECT_ROOT is already mi-mod-aventura
 
 // Schemas de Bedrock (simplificados para validación básica)
 const SCHEMAS = {

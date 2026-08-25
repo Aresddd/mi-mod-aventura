@@ -1,0 +1,37 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:fauno_quebrado"
+    },
+    "textures": {
+      "base": "textures/entity/fauno_quebrado",
+      "normal": "textures/entity/fauno_quebrado_normal",
+      "height": "textures/entity/fauno_quebrado_height",
+      "mer": "textures/entity/fauno_quebrado_mer",
+      "subsurface": "textures/entity/fauno_quebrado_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true
+      },
+      "antler_normal": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.9,
+        "metalness": 0.0
+      },
+      "antler_crystal": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.1,
+        "metalness": 0.0,
+        "emissive_intensity": 2.0
+      }
+    }
+  }
+}

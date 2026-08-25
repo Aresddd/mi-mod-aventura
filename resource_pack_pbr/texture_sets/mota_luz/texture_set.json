@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:mota_luz"
+    },
+    "textures": {
+      "base": "textures/entity/mota_luz",
+      "normal": "textures/entity/mota_luz_normal",
+      "height": "textures/entity/mota_luz_height",
+      "mer": "textures/entity/mota_luz_mer",
+      "subsurface": "textures/entity/mota_luz_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "alpha_test",
+        "face_culling": false,
+        "ambient_occlusion": false
+      },
+      "core": {
+        "render_method": "alpha_test",
+        "face_culling": false,
+        "ambient_occlusion": false,
+        "roughness": 0.0,
+        "metalness": 0.0,
+        "emissive_intensity": 3.0
+      }
+    }
+  }
+}

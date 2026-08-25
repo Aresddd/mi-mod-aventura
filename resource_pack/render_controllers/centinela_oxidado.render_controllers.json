@@ -1,0 +1,30 @@
+{
+  "format_version": "1.21.0",
+  "render_controllers": {
+    "controller.render.centinela_oxidado": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        },
+        {
+          "body": "Material.armor_rusted",
+          "head": "Material.armor_rusted",
+          "arm_left": "Material.armor_rusted",
+          "arm_right": "Material.armor_rusted",
+          "leg_left": "Material.armor_rusted",
+          "leg_right": "Material.armor_rusted"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 1.0
+      }
+    }
+  }
+}

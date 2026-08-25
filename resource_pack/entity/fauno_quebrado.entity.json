@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sifon:fauno_quebrado",
+      "materials": {
+        "default": "entity_alphatest",
+        "antler_normal": "entity_alphatest",
+        "antler_crystal": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/fauno_quebrado"
+      },
+      "geometry": {
+        "default": "geometry.fauno_quebrado"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.fauno_quebrado.idle",
+        "move": "animation.fauno_quebrado.move",
+        "charge": "animation.fauno_quebrado.charge",
+        "death": "animation.fauno_quebrado.death"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.fauno_quebrado.general"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.fauno_quebrado"
+      ],
+      "spawn_egg": {
+        "base_color": "#8b6914",
+        "overlay_color": "#4a0080"
+      }
+    }
+  }
+}

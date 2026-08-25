@@ -1,0 +1,59 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.mota_luz",
+        "texture_width": 32,
+        "texture_height": 32,
+        "visible_bounds_width": 1.5,
+        "visible_bounds_height": 1.5,
+        "visible_bounds_offset": [0, 0.5, 0]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [0, 0, 0],
+          "cubes": [],
+          "children": [
+            {
+              "name": "core",
+              "pivot": [0, 0, 0],
+              "cubes": [
+                {
+                  "origin": [-2, -2, -2],
+                  "size": [4, 4, 4],
+                  "uv": [0, 0]
+                }
+              ],
+              "children": [
+                {
+                  "name": "glow_outer",
+                  "pivot": [0, 0, 0],
+                  "cubes": [
+                    {
+                      "origin": [-4, -4, -4],
+                      "size": [8, 8, 8],
+                      "uv": [0, 16]
+                    }
+                  ]
+                },
+                {
+                  "name": "particle_trail",
+                  "pivot": [0, 0, 0],
+                  "cubes": [
+                    {
+                      "origin": [-1, -1, -1],
+                      "size": [2, 2, 2],
+                      "uv": [16, 0]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

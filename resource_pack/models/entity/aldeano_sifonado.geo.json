@@ -1,0 +1,127 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.aldeano_sifonado",
+        "texture_width": 64,
+        "texture_height": 64,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 2.5,
+        "visible_bounds_offset": [0, 1, 0]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [0, 0, 0],
+          "cubes": [],
+          "children": [
+            {
+              "name": "body",
+              "pivot": [0, 0, 0],
+              "cubes": [
+                {
+                  "origin": [-4, 0, -2],
+                  "size": [8, 12, 4],
+                  "uv": [0, 0]
+                }
+              ],
+              "children": [
+                {
+                  "name": "head",
+                  "pivot": [0, 12, 0],
+                  "cubes": [
+                    {
+                      "origin": [-4, 12, -4],
+                      "size": [8, 10, 8],
+                      "uv": [0, 16]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "nose",
+                      "pivot": [0, 14, -4],
+                      "cubes": [
+                        {
+                          "origin": [-1, 14, -6],
+                          "size": [2, 4, 2],
+                          "uv": [24, 0]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "eyes",
+                      "pivot": [0, 16, -3],
+                      "cubes": [
+                        {
+                          "origin": [-3, 16, -3],
+                          "size": [6, 2, 1],
+                          "uv": [32, 0]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "arm_left",
+                  "pivot": [5, 11, 0],
+                  "cubes": [
+                    {
+                      "origin": [4, 2, -2],
+                      "size": [4, 12, 4],
+                      "uv": [44, 16]
+                    }
+                  ]
+                },
+                {
+                  "name": "arm_right",
+                  "pivot": [-5, 11, 0],
+                  "cubes": [
+                    {
+                      "origin": [-8, 2, -2],
+                      "size": [4, 12, 4],
+                      "uv": [44, 32]
+                    }
+                  ]
+                },
+                {
+                  "name": "leg_left",
+                  "pivot": [2, 0, 0],
+                  "cubes": [
+                    {
+                      "origin": [2, -12, -2],
+                      "size": [4, 12, 4],
+                      "uv": [16, 16]
+                    }
+                  ]
+                },
+                {
+                  "name": "leg_right",
+                  "pivot": [-2, 0, 0],
+                  "cubes": [
+                    {
+                      "origin": [-6, -12, -2],
+                      "size": [4, 12, 4],
+                      "uv": [0, 16]
+                    }
+                  ]
+                },
+                {
+                  "name": "corruption_aura",
+                  "pivot": [0, 6, 0],
+                  "cubes": [
+                    {
+                      "origin": [-5, 0, -3],
+                      "size": [10, 12, 6],
+                      "uv": [0, 48]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

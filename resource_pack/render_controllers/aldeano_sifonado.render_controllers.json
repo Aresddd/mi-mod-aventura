@@ -1,0 +1,35 @@
+{
+  "format_version": "1.21.0",
+  "render_controllers": {
+    "controller.render.aldeano_sifonado": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        },
+        {
+          "body": "Material.skin_corrupted",
+          "head": "Material.skin_corrupted",
+          "nose": "Material.skin_corrupted",
+          "arm_left": "Material.skin_normal",
+          "arm_right": "Material.skin_normal",
+          "leg_left": "Material.skin_normal",
+          "leg_right": "Material.skin_normal",
+          "corruption_aura": "Material.skin_corrupted"
+        },
+        {
+          "eyes": "Material.eyes"
+        }
+      ],
+      "textures": [
+        "Texture.default"
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 1.0
+      }
+    }
+  }
+}

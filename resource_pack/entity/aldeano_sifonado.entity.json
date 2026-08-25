@@ -1,0 +1,39 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sifon:aldeano_sifonado",
+      "materials": {
+        "default": "entity_alphatest",
+        "skin_normal": "entity_alphatest",
+        "skin_corrupted": "entity_alphatest_emissive",
+        "eyes": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/aldeano_sifonado"
+      },
+      "geometry": {
+        "default": "geometry.aldeano_sifonado"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.aldeano_sifonado.idle",
+        "move": "animation.aldeano_sifonado.move",
+        "attack": "animation.aldeano_sifonado.attack",
+        "death": "animation.aldeano_sifonado.death"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.aldeano_sifonado.general"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.aldeano_sifonado"
+      ],
+      "spawn_egg": {
+        "base_color": "#8b7355",
+        "overlay_color": "#4a0026"
+      }
+    }
+  }
+}

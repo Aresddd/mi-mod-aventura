@@ -1,0 +1,38 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sifon:espina_reina",
+      "materials": {
+        "default": "entity_alphatest",
+        "carapace_healthy": "entity_alphatest_emissive",
+        "carapace_cracked": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/espina_reina"
+      },
+      "geometry": {
+        "default": "geometry.espina_reina"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.espina_reina.idle",
+        "move": "animation.espina_reina.move",
+        "attack": "animation.espina_reina.attack",
+        "death": "animation.espina_reina.death"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.espina_reina.general"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.espina_reina"
+      ],
+      "spawn_egg": {
+        "base_color": "#2d5a2d",
+        "overlay_color": "#1a1a1a"
+      }
+    }
+  }
+}

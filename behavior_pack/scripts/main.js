@@ -33,8 +33,8 @@ const ENTITY_IDS = {
   ESPINA_REINA: `${NAMESPACE}:espina_reina`,
   FAUNO_QUEBRADO: `${NAMESPACE}:fauno_quebrado`,
   // Mobs comunes
-  MOTAS_LUZ: `${NAMESPACE}:motas_luz`,
-  ALDEANOS_SIFONADOS: `${NAMESPACE}:aldeanos_sifonados`
+  MOTA_LUZ: `${NAMESPACE}:mota_luz`,
+  ALDEANO_SIFONADO: `${NAMESPACE}:aldeano_sifonado`
 };
 
 // Sistema de misiones - Fases de progresión
@@ -53,8 +53,15 @@ const PROGRESSION_ITEMS = {
   ESGUIRLA_DONCELLA: `${NAMESPACE}:esquirla_doncella`,
   ESGUIRLA_ROBLE: `${NAMESPACE}:esquirla_roble`,
   LLAVE_REY_SIFON: `${NAMESPACE}:llave_rey_sifon`,
-  ESENCIA_CORRUPTA: `${NAMESPACE}:esencia_corrupta`,
-  TROFEO_RASTRERO: `${NAMESPACE}:rastrero_trophy`
+  ESENCIA_CORRUPTA: `${NAMESPACE}:corrupted_essence`,
+  TROFEO_RASTRERO: `${NAMESPACE}:rastrero_trophy`,
+  // Minijefe drops
+  PLACA_OXIDADA: `${NAMESPACE}:placa_oxidada`,
+  CAPARAZON_AGRIETADO: `${NAMESPACE}:caparazon_agrietado`,
+  ASTILLA_CORNAMENTA: `${NAMESPACE}:astilla_cornamenta`,
+  // Mob común drops
+  POLVO_ESTRELLA: `${NAMESPACE}:polvo_estrella`,
+  ESENCIA_SIFONADA: `${NAMESPACE}:esencia_sifonada`
 };
 
 // Dynamic property keys para tracking de progreso por jugador
@@ -338,11 +345,14 @@ function handleSifonCommand(player, args) {
     case "spawn":
       if (player.hasTag("admin") || player.isOp()) {
         const entityType = args[2];
-        if (entityType && Object.values(ENTITY_IDS).includes(`${NAMESPACE}:${entityType}`)) {
-          spawnEntityNearPlayer(player, `${NAMESPACE}:${entityType}`);
+        const validTypes = Object.keys(ENTITY_IDS);
+        if (entityType && validTypes.some(key => key.toLowerCase() === entityType.toLowerCase())) {
+          // Find the exact key to get the proper entity ID
+          const exactKey = validTypes.find(key => key.toLowerCase() === entityType.toLowerCase());
+          spawnEntityNearPlayer(player, ENTITY_IDS[exactKey]);
           player.sendMessage(`§aEntidad ${entityType} invocada.`);
         } else {
-          player.sendMessage("§cEntidad no válida. Opciones: " + Object.keys(ENTITY_IDS).join(", "));
+          player.sendMessage("§cEntidad no válida. Opciones: " + validTypes.map(k => k.toLowerCase()).join(", "));
         }
       }
       break;

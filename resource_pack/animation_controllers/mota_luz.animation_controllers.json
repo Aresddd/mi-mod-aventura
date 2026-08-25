@@ -1,0 +1,53 @@
+{
+  "format_version": "1.21.0",
+  "animation_controllers": {
+    "controller.animation.mota_luz.general": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["idle"],
+          "transitions": [
+            {
+              "flee": "query.is_moving && query.has_target == false && query.distance_to_target < 8"
+            },
+            {
+              "move": "query.is_moving"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "move": {
+          "animations": ["move"],
+          "transitions": [
+            {
+              "flee": "query.has_target == false && query.distance_to_target < 8"
+            },
+            {
+              "idle": "!query.is_moving"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "flee": {
+          "animations": ["flee"],
+          "transitions": [
+            {
+              "idle": "!query.is_moving || query.distance_to_target > 8"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "death": {
+          "animations": [],
+          "transitions": []
+        }
+      }
+    }
+  }
+}

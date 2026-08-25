@@ -1,0 +1,130 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sifon:aldeano_sifonado",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "look_at_target"
+        ]
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.aldeano_sifonado.idle",
+        "move": "animation.aldeano_sifonado.move",
+        "attack": "animation.aldeano_sifonado.attack",
+        "death": "animation.aldeano_sifonado.death"
+      },
+      "animation_controllers": [
+        {
+          "controller.animation.aldeano_sifonado.general": "controller.animation.aldeano_sifonado.general"
+        }
+      ],
+      "geometry": {
+        "default": "geometry.aldeano_sifonado"
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "skin_normal": "entity_alphatest",
+        "skin_corrupted": "entity_alphatest_emissive",
+        "eyes": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/aldeano_sifonado"
+      },
+      "spawn_egg": {
+        "base_color": "#8b7355",
+        "overlay_color": "#4a0026"
+      }
+    },
+    "component_groups": {},
+    "components": {
+      "minecraft:type_family": {
+        "family": ["aldeano_sifonado", "monster", "sifon_corrupted"]
+      },
+      "minecraft:health": {
+        "value": 30,
+        "max": 30
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.95
+      },
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "can_pass_doors": true,
+        "avoid_water": true,
+        "can_open_doors": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:attack": {
+        "damage": 6
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.2
+      },
+      "minecraft:follow_range": {
+        "value": 16
+      },
+      "minecraft:persistent": {},
+      "minecraft:fire_immune": false,
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:nameable": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 8 : 0"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/aldeano_sifonado.json"
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "set_alert_target": true
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 16,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 16
+          }
+        ],
+        "must_see": true
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.0,
+        "track_target": true
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 5,
+        "speed_multiplier": 0.6
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 6,
+        "look_distance": 10
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {}
+    }
+  }
+}

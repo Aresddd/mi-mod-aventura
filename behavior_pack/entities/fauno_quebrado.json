@@ -1,0 +1,150 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sifon:fauno_quebrado",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "look_at_target"
+        ]
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.fauno_quebrado.idle",
+        "move": "animation.fauno_quebrado.move",
+        "charge": "animation.fauno_quebrado.charge",
+        "death": "animation.fauno_quebrado.death"
+      },
+      "animation_controllers": [
+        {
+          "controller.animation.fauno_quebrado.general": "controller.animation.fauno_quebrado.general"
+        }
+      ],
+      "geometry": {
+        "default": "geometry.fauno_quebrado"
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "antler_normal": "entity_alphatest",
+        "antler_crystal": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/fauno_quebrado"
+      },
+      "spawn_egg": {
+        "base_color": "#8b6914",
+        "overlay_color": "#4a0080"
+      }
+    },
+    "component_groups": {
+      "sifon:charge_cooldown": {
+        "minecraft:timer": {
+          "time": 3.0,
+          "looping": false,
+          "time_down_event": {
+            "event": "sifon:charge_ready"
+          }
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["fauno_quebrado", "miniboss", "monster", "sifon_corrupted"]
+      },
+      "minecraft:health": {
+        "value": 90,
+        "max": 90
+      },
+      "minecraft:collision_box": {
+        "width": 1.0,
+        "height": 2.0
+      },
+      "minecraft:movement": {
+        "value": 0.35
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "can_pass_doors": false,
+        "avoid_water": true,
+        "can_open_doors": false
+      },
+      "minecraft:jump.static": {},
+      "minecraft:attack": {
+        "damage": 8
+      },
+      "minecraft:knockback_resistance": {
+        "value": 0.4
+      },
+      "minecraft:follow_range": {
+        "value": 22
+      },
+      "minecraft:persistent": {},
+      "minecraft:fire_immune": false,
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:nameable": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 40 : 0"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/fauno_quebrado.json"
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "set_alert_target": true
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 22,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 22
+          }
+        ],
+        "must_see": true
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.3,
+        "track_target": true
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 5,
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 6,
+        "look_distance": 14
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 7
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": ["sifon:charge_cooldown"]
+        }
+      },
+      "sifon:charge_ready": {
+        "queue_command": {
+          "command": [
+            "particle minecraft:crit ~ ~1 ~ 1 0.5 1 0.1 10"
+          ]
+        }
+      }
+    }
+  }
+}

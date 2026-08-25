@@ -1,0 +1,36 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sifon:mota_luz",
+      "materials": {
+        "default": "entity_alphatest_emissive",
+        "core": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/mota_luz"
+      },
+      "geometry": {
+        "default": "geometry.mota_luz"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.mota_luz.idle",
+        "move": "animation.mota_luz.move",
+        "flee": "animation.mota_luz.flee"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.mota_luz.general"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.mota_luz"
+      ],
+      "spawn_egg": {
+        "base_color": "#fff8dc",
+        "overlay_color": "#ffd700"
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:aldeano_sifonado"
+    },
+    "textures": {
+      "base": "textures/entity/aldeano_sifonado",
+      "normal": "textures/entity/aldeano_sifonado_normal",
+      "height": "textures/entity/aldeano_sifonado_height",
+      "mer": "textures/entity/aldeano_sifonado_mer",
+      "subsurface": "textures/entity/aldeano_sifonado_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true
+      },
+      "skin_corrupted": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.6,
+        "metalness": 0.0,
+        "emissive_intensity": 0.3
+      },
+      "skin_normal": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.8,
+        "metalness": 0.0
+      },
+      "eyes": {
+        "render_method": "alpha_test",
+        "face_culling": false,
+        "ambient_occlusion": false,
+        "roughness": 0.0,
+        "metalness": 0.0,
+        "emissive_intensity": 1.5
+      }
+    }
+  }
+}

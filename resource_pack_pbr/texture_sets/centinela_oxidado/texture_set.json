@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:texture_set": {
+    "description": {
+      "identifier": "sifon:centinela_oxidado"
+    },
+    "textures": {
+      "base": "textures/entity/centinela_oxidado",
+      "normal": "textures/entity/centinela_oxidado_normal",
+      "height": "textures/entity/centinela_oxidado_height",
+      "mer": "textures/entity/centinela_oxidado_mer",
+      "subsurface": "textures/entity/centinela_oxidado_subsurface"
+    },
+    "material_instances": {
+      "default": {
+        "render_method": "alpha_test",
+        "face_culling": true,
+        "ambient_occlusion": true
+      },
+      "armor_rusted": {
+        "render_method": "opaque",
+        "face_culling": true,
+        "ambient_occlusion": true,
+        "roughness": 0.7,
+        "metalness": 0.6
+      }
+    }
+  }
+}
