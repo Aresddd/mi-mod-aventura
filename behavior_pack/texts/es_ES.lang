@@ -2,7 +2,7 @@
 
 # Nombres de Entidades
 entity.sifon:rastrero.name=Rastrero
-entity.sifon:guardián_perjuro.name=Guardián Perjuro
+entity.sifon:guardian_perjuro.name=Guardián Perjuro
 entity.sifon:doncella_cristal.name=Doncella de Cristal
 entity.sifon:roble_devorado.name=Roble Devorado
 entity.sifon:rey_sifon.name=Rey Sifón
@@ -15,7 +15,7 @@ entity.sifon:aldeanos_sifonados.name=Aldeanos Sifonados
 # Nombres de Ítems
 item.sifon:rastrero_trophy.name=Trofeo de Rastrero
 item.sifon:corrupted_essence.name=Esencia Corrupta
-item.sifon:esquirla_guardián.name=Esquirla del Guardián
+item.sifon:esquirla_guardian.name=Esquirla del Guardián
 item.sifon:esquirla_doncella.name=Esquirla de la Doncella
 item.sifon:esquirla_roble.name=Esquirla del Roble
 item.sifon:llave_rey_sifon.name=Llave del Corazón del Sifón
@@ -28,7 +28,7 @@ item.sifon:armadura_luz_botas.name=Botas de Luz Pura
 # Descripciones de Ítems (tooltip)
 item.sifon:rastrero_trophy.description=Prueba de haber derrotado a un Rastrero. Útil para crafting decorativo.
 item.sifon:corrupted_essence.description=Residuo de la corrupción del Sifón. Útil para crafting de equipos anti-corrupción.
-item.sifon:esquirla_guardián.description=Fragmento de luz pura extraído del Guardián Perjuro. Una de las tres llaves para enfrentar al Rey Sifón.
+item.sifon:esquirla_guardian.description=Fragmento de luz pura extraído del Guardián Perjuro. Una de las tres llaves para enfrentar al Rey Sifón.
 item.sifon:esquirla_doncella.description=Fragmento de luz pura extraído de la Doncella de Cristal. Una de las tres llaves para enfrentar al Rey Sifón.
 item.sifon:esquirla_roble.description=Fragmento de luz pura extraído del Roble Devorado. Una de las tres llaves para enfrentar al Rey Sifón.
 item.sifon:llave_rey_sifon.description=Las tres esquirlas de luz pura se han fusionado. Abre el camino al corazón de la corrupción.
@@ -40,7 +40,7 @@ item.sifon:armadura_luz_botas.description=Protege contra la corrupción del Sif�
 
 # Huevos de Invocación
 spawn_egg.sifon:rastrero.name=Invocar Rastrero
-spawn_egg.sifon:guardián_perjuro.name=Invocar Guardián Perjuro
+spawn_egg.sifon:guardian_perjuro.name=Invocar Guardián Perjuro
 spawn_egg.sifon:doncella_cristal.name=Invocar Doncella de Cristal
 spawn_egg.sifon:roble_devorado.name=Invocar Roble Devorado
 spawn_egg.sifon:rey_sifon.name=Invocar Rey Sifón
@@ -60,12 +60,12 @@ command.sifon.progress.body=§rFase actual: %s\n\n§7Objetivo: Limpia las zonas 
 command.sifon.reset.success=Progreso reiniciado.
 command.sifon.reset.no_permission=No tienes permisos.
 command.sifon.spawn.success=Entidad %s invocada.
-command.sifon.spawn.invalid=Entidad no válida. Opciones: rastrero, guardián_perjuro, doncella_cristal, roble_devorado, rey_sifon, centinela_oxidado, espina_reina, fauno_quebrado, motas_luz, aldeanos_sifonados
+command.sifon.spawn.invalid=Entidad no válida. Opciones: rastrero, guardian_perjuro, doncella_cristal, roble_devorado, rey_sifon, centinela_oxidado, espina_reina, fauno_quebrado, motas_luz, aldeanos_sifonados
 command.sifon.spawn.no_permission=No tienes permisos.
 
 # Fases de Misión
 quest.phase.inicio=§7Inicio - Busca el Santuario
-quest.phase.guardián_derrotado=§aGuardián Perjuro §r§7derrotado - Busca el Santuario en Ruinas
+quest.phase.guardian_derrotado=§aGuardián Perjuro §r§7derrotado - Busca el Santuario en Ruinas
 quest.phase.doncella_derrotada=§aDoncella de Cristal §r§7derrotada - Busca el Bosque Corrupto
 quest.phase.roble_derrotado=§aRoble Devorado §r§7derrotado - §d¡El Rey Sifón está accesible!
 quest.phase.rey_sifon_desbloqueado=§d§lREY SIFÓN DESBLOQUEADO§r - Usa la llave para acceder

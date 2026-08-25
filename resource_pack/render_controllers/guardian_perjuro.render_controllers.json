@@ -1,0 +1,39 @@
+{
+  "format_version": "1.21.0",
+  "render_controllers": {
+    "controller.render.guardian_perjuro": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        },
+        {
+          "weapon": "Material.corrupted"
+        }
+      ],
+      "textures": [
+        "Texture.default",
+        {
+          "weapon": "Texture.default"
+        },
+        {
+          "body": "Texture.phase2",
+          "head": "Texture.phase2",
+          "waist": "Texture.phase2",
+          "right_pauldron": "Texture.phase2",
+          "left_pauldron": "Texture.phase2",
+          "right_arm": "Texture.phase2",
+          "left_arm": "Texture.phase2",
+          "right_leg": "Texture.phase2",
+          "left_leg": "Texture.phase2"
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 1.0
+      }
+    }
+  }
+}

@@ -2,14 +2,14 @@
   "format_version": "1.21.0",
   "minecraft:texture_set": {
     "description": {
-      "identifier": "sifon:guardián_perjuro"
+      "identifier": "sifon:guardian_perjuro"
     },
     "textures": {
-      "base": "textures/entity/guardián_perjuro",
-      "normal": "textures/entity/guardián_perjuro_normal",
-      "height": "textures/entity/guardián_perjuro_height",
-      "mer": "textures/entity/guardián_perjuro_mer",
-      "subsurface": "textures/entity/guardián_perjuro_subsurface"
+      "base": "textures/entity/guardian_perjuro",
+      "normal": "textures/entity/guardian_perjuro_normal",
+      "height": "textures/entity/guardian_perjuro_height",
+      "mer": "textures/entity/guardian_perjuro_mer",
+      "subsurface": "textures/entity/guardian_perjuro_subsurface"
     },
     "material_instances": {
       "default": {

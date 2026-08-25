@@ -29,7 +29,7 @@ resource_pack_pbr/
 │   │   ├── rastrero_height.png
 │   │   ├── rastrero_mer.png
 │   │   └── rastrero_subsurface.png
-│   ├── guardián_perjuro/
+│   ├── guardian_perjuro/
 │   ├── doncella_cristal/
 │   ├── roble_devorado/
 │   └── rey_sifon/

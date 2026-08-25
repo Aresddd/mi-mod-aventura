@@ -1,0 +1,226 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sifon:roble_devorado",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "look_at_target"
+        ]
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.roble_devorado.idle",
+        "move": "animation.roble_devorado.move",
+        "summon_roots": "animation.roble_devorado.summon_roots",
+        "summon_roots_burst": "animation.roble_devorado.summon_roots_burst",
+        "phase_transition": "animation.roble_devorado.phase_transition",
+        "death": "animation.roble_devorado.death"
+      },
+      "animation_controllers": [
+        {
+          "controller.animation.roble_devorado.general": "controller.animation.roble_devorado.general"
+        }
+      ],
+      "geometry": {
+        "default": "geometry.roble_devorado"
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "bark_healthy": "entity_alphatest_emissive",
+        "bark_corrupted": "entity_alphatest_emissive",
+        "leaves_golden": "entity_alphatest_emissive",
+        "roots_corrupted": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/roble_devorado",
+        "phase2": "textures/entity/roble_devorado_phase2"
+      },
+      "spawn_egg": {
+        "base_color": "#2e7d32",
+        "overlay_color": "#1b0000"
+      }
+    },
+    "component_groups": {
+      "sifon:phase_monitor": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "test": "is_missing_health",
+                "subject": "self",
+                "value": 150
+              },
+              "event": "sifon:start_phase2"
+            }
+          ]
+        }
+      },
+      "sifon:phase2_transition": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:timer": {
+          "time": 4.0,
+          "looping": false,
+          "time_down_event": {
+            "event": "sifon:finish_phase2"
+          }
+        }
+      },
+      "sifon:phase2_engaged": {
+        "minecraft:mark_variant": {
+          "value": 1
+        },
+        "minecraft:movement": {
+          "value": 0.18
+        },
+        "minecraft:attack": {
+          "damage": 14
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["roble_devorado", "boss", "monster", "sifon_corrupted"]
+      },
+      "minecraft:health": {
+        "value": 300,
+        "max": 300
+      },
+      "minecraft:boss": {
+        "should_darken_sky": true,
+        "hud_range": 60
+      },
+      "minecraft:collision_box": {
+        "width": 1.5,
+        "height": 3.0
+      },
+      "minecraft:movement": {
+        "value": 0.15
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "can_pass_doors": false,
+        "avoid_water": true,
+        "can_open_doors": false
+      },
+      "minecraft:jump.static": {},
+      "minecraft:attack": {
+        "damage": 10
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:follow_range": {
+        "value": 25
+      },
+      "minecraft:persistent": {},
+      "minecraft:fire_immune": false,
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:nameable": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 70 : 0"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/roble_devorado.json"
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "set_alert_target": true
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 30,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 30
+          }
+        ],
+        "must_see": false
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.6
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 15
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": ["sifon:phase_monitor"]
+        },
+        "queue_command": {
+          "command": [
+            "function boss/roble_devorado/init_roots"
+          ]
+        }
+      },
+      "sifon:start_phase2": {
+        "remove": {
+          "component_groups": ["sifon:phase_monitor"]
+        },
+        "add": {
+          "component_groups": ["sifon:phase2_transition"]
+        },
+        "queue_command": {
+          "command": [
+            "playsound mob.warden.roar @a[r=60]",
+            "particle minecraft:large_smoke_emitter ~ ~1.5 ~",
+            "particle minecraft:ash_emitter ~ ~0.5 ~"
+          ]
+        }
+      },
+      "sifon:finish_phase2": {
+        "remove": {
+          "component_groups": ["sifon:phase2_transition"]
+        },
+        "add": {
+          "component_groups": ["sifon:phase2_engaged"]
+        },
+        "queue_command": {
+          "command": [
+            "playsound mob.warden.heartbeat @a[r=60]",
+            "particle minecraft:flash ~ ~1.5 ~"
+          ]
+        }
+      },
+      "sifon:summon_roots_phase1": {
+        "queue_command": {
+          "command": [
+            "function boss/roble_devorado/summon_roots_phase1"
+          ]
+        }
+      },
+      "sifon:summon_roots_phase2": {
+        "queue_command": {
+          "command": [
+            "function boss/roble_devorado/summon_roots_phase2"
+          ]
+        }
+      }
+    }
+  }
+}

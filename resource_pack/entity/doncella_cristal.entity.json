@@ -1,0 +1,42 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sifon:doncella_cristal",
+      "materials": {
+        "default": "entity_alphatest",
+        "crystal_intact": "entity_alphatest_emissive",
+        "crystal_corrupted": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/doncella_cristal",
+        "phase2": "textures/entity/doncella_cristal_phase2"
+      },
+      "geometry": {
+        "default": "geometry.doncella_cristal"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.doncella_cristal.idle",
+        "move": "animation.doncella_cristal.move",
+        "attack_shard": "animation.doncella_cristal.attack_shard",
+        "attack_shard_burst": "animation.doncella_cristal.attack_shard_burst",
+        "reposition": "animation.doncella_cristal.reposition",
+        "phase_transition": "animation.doncella_cristal.phase_transition",
+        "death": "animation.doncella_cristal.death"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.doncella_cristal.general"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.doncella_cristal"
+      ],
+      "spawn_egg": {
+        "base_color": "#8ae6ff",
+        "overlay_color": "#2d0047"
+      }
+    }
+  }
+}

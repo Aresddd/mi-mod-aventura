@@ -1,0 +1,142 @@
+{
+  "format_version": "1.21.0",
+  "animation_controllers": {
+    "controller.animation.doncella_cristal.general": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["idle"],
+          "transitions": [
+            {
+              "move": "query.is_moving && query.variant == 0 && query.mark_variant == 0"
+            },
+            {
+              "move_phase2": "query.is_moving && (query.variant == 1 || query.mark_variant == 1)"
+            },
+            {
+              "attack_shard": "query.variant == 0 && query.mark_variant == 0 && query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "reposition": "query.variant == 0 && query.mark_variant == 0 && query.has_target && query.attack_time <= 0 && query.distance_to_target < 6.0"
+            },
+            {
+              "attack_shard_burst": "(query.variant == 1 || query.mark_variant == 1) && query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "attack_shard": "(query.variant == 1 || query.mark_variant == 1) && query.has_target && query.attack_time > 0 && math.random(2) == 1"
+            },
+            {
+              "reposition": "(query.variant == 1 || query.mark_variant == 1) && query.has_target && query.attack_time <= 0 && query.distance_to_target < 8.0"
+            },
+            {
+              "phase_transition": "query.variant == 1 && query.mark_variant == 0"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "move": {
+          "animations": ["move"],
+          "transitions": [
+            {
+              "idle": "!query.is_moving"
+            },
+            {
+              "attack_shard": "query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "reposition": "query.has_target && query.attack_time <= 0 && query.distance_to_target < 6.0"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "move_phase2": {
+          "animations": ["move"],
+          "transitions": [
+            {
+              "idle": "!query.is_moving"
+            },
+            {
+              "attack_shard_burst": "query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "attack_shard": "query.has_target && query.attack_time > 0 && math.random(2) == 1"
+            },
+            {
+              "reposition": "query.has_target && query.attack_time <= 0 && query.distance_to_target < 8.0"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "attack_shard": {
+          "animations": ["attack_shard"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "attack_shard_burst": {
+          "animations": ["attack_shard_burst"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "reposition": {
+          "animations": ["reposition"],
+          "transitions": [
+            {
+              "idle": "!query.has_target || query.distance_to_target > 10.0"
+            },
+            {
+              "attack_shard": "query.has_target && query.attack_time > 0 && query.variant == 0"
+            },
+            {
+              "attack_shard_burst": "query.has_target && query.attack_time > 0 && query.variant == 1"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "phase_transition": {
+          "animations": ["phase_transition"],
+          "transitions": [
+            {
+              "idle": "query.mark_variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "death": {
+          "animations": ["death"],
+          "transitions": []
+        }
+      }
+    }
+  }
+}

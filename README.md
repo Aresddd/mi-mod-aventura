@@ -62,7 +62,7 @@ Inicio → Derrotar Guardaín Perjuro (Esquirla 1)
 
 **Entidades disponibles para spawn:**
 - `rastrero`
-- `guardián_perjuro` (fase posterior)
+- `guardian_perjuro` (fase posterior)
 - `doncella_cristal` (fase posterior)
 - `roble_devorado` (fase posterior)
 - `rey_sifon` (fase posterior)

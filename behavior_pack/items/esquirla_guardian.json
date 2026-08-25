@@ -2,7 +2,7 @@
   "format_version": "1.21.0",
   "minecraft:item": {
     "description": {
-      "identifier": "sifon:esquirla_guardián",
+      "identifier": "sifon:esquirla_guardian",
       "category": "nature"
     },
     "components": {
@@ -11,7 +11,7 @@
         "value": "§6Esquirla del Guardián"
       },
       "minecraft:icon": {
-        "texture": "esquirla_guardián"
+        "texture": "esquirla_guardian"
       },
       "minecraft:creative_category": {
         "parent": "itemGroup.name.nature"

@@ -1,0 +1,141 @@
+{
+  "format_version": "1.21.0",
+  "animation_controllers": {
+    "controller.animation.guardian_perjuro.general": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["idle"],
+          "transitions": [
+            {
+              "walk": "query.is_moving && query.variant == 0 && query.mark_variant == 0"
+            },
+            {
+              "walk_phase2": "query.is_moving && (query.variant == 1 || query.mark_variant == 1)"
+            },
+            {
+              "attack_slash": "query.variant == 0 && query.mark_variant == 0 && query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "attack_overhead": "query.variant == 0 && query.mark_variant == 0 && query.has_target && query.attack_time > 0 && math.random(2) == 1"
+            },
+            {
+              "attack_wild_swipe": "(query.variant == 1 || query.mark_variant == 1) && query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "attack_slam": "(query.variant == 1 || query.mark_variant == 1) && query.has_target && query.attack_time > 0 && math.random(2) == 1"
+            },
+            {
+              "phase_transition": "query.variant == 1 && query.mark_variant == 0"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "walk": {
+          "animations": ["walk"],
+          "transitions": [
+            {
+              "idle": "!query.is_moving"
+            },
+            {
+              "attack_slash": "query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "attack_overhead": "query.has_target && query.attack_time > 0 && math.random(2) == 1"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "walk_phase2": {
+          "animations": ["walk"],
+          "transitions": [
+            {
+              "idle": "!query.is_moving"
+            },
+            {
+              "attack_wild_swipe": "query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "attack_slam": "query.has_target && query.attack_time > 0 && math.random(2) == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "attack_slash": {
+          "animations": ["attack_slash"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "attack_overhead": {
+          "animations": ["attack_overhead"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "attack_wild_swipe": {
+          "animations": ["attack_wild_swipe"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "attack_slam": {
+          "animations": ["attack_slam"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "phase_transition": {
+          "animations": ["phase_transition"],
+          "transitions": [
+            {
+              "idle": "query.mark_variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "death": {
+          "animations": ["death"],
+          "transitions": []
+        }
+      }
+    }
+  }
+}

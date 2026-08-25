@@ -2,7 +2,7 @@
 
 # Entity Names
 entity.sifon:rastrero.name=Rastrero
-entity.sifon:guardián_perjuro.name=The Perjured Guardian
+entity.sifon:guardian_perjuro.name=The Perjured Guardian
 entity.sifon:doncella_cristal.name=Crystal Maiden
 entity.sifon:roble_devorado.name=Devoured Oak
 entity.sifon:rey_sifon.name=The Siphon King
@@ -15,7 +15,7 @@ entity.sifon:aldeanos_sifonados.name=Siphoned Villager
 # Item Names
 item.sifon:rastrero_trophy.name=Rastrero Trophy
 item.sifon:corrupted_essence.name=Corrupted Essence
-item.sifon:esquirla_guardián.name=Guardian's Shard
+item.sifon:esquirla_guardian.name=Guardian's Shard
 item.sifon:esquirla_doncella.name=Maiden's Shard
 item.sifon:esquirla_roble.name=Oak's Shard
 item.sifon:llave_rey_sifon.name=Key to the Siphon's Heart
@@ -28,7 +28,7 @@ item.sifon:armadura_luz_botas.name=Pure Light Boots
 # Item Descriptions (shown in tooltip)
 item.sifon:rastrero_trophy.description=Proof of defeating a Rastrero. Can be used for decorative crafting.
 item.sifon:corrupted_essence.description=Residue of the Siphon's corruption. Useful for crafting anti-corruption gear.
-item.sifon:esquirla_guardián.description=Fragment of pure light extracted from the Perjured Guardian. One of three keys to face the Siphon King.
+item.sifon:esquirla_guardian.description=Fragment of pure light extracted from the Perjured Guardian. One of three keys to face the Siphon King.
 item.sifon:esquirla_doncella.description=Fragment of pure light extracted from the Crystal Maiden. One of three keys to face the Siphon King.
 item.sifon:esquirla_roble.description=Fragment of pure light extracted from the Devoured Oak. One of three keys to face the Siphon King.
 item.sifon:llave_rey_sifon.description=The three shards of pure light have fused. Opens the path to the heart of corruption.
@@ -40,7 +40,7 @@ item.sifon:armadura_luz_botas.description=Protects against the Siphon's corrupti
 
 # Spawn Eggs
 spawn_egg.sifon:rastrero.name=Spawn Rastrero
-spawn_egg.sifon:guardián_perjuro.name=Spawn Perjured Guardian
+spawn_egg.sifon:guardian_perjuro.name=Spawn Perjured Guardian
 spawn_egg.sifon:doncella_cristal.name=Spawn Crystal Maiden
 spawn_egg.sifon:roble_devorado.name=Spawn Devoured Oak
 spawn_egg.sifon:rey_sifon.name=Spawn Siphon King
@@ -60,12 +60,12 @@ command.sifon.progress.body=§rCurrent Phase: %s\n\n§7Objective: Cleanse corrup
 command.sifon.reset.success=Progress reset.
 command.sifon.reset.no_permission=You don't have permission.
 command.sifon.spawn.success=Entity %s summoned.
-command.sifon.spawn.invalid=Invalid entity. Options: rastrero, guardián_perjuro, doncella_cristal, roble_devorado, rey_sifon, centinela_oxidado, espina_reina, fauno_quebrado, motas_luz, aldeanos_sifonados
+command.sifon.spawn.invalid=Invalid entity. Options: rastrero, guardian_perjuro, doncella_cristal, roble_devorado, rey_sifon, centinela_oxidado, espina_reina, fauno_quebrado, motas_luz, aldeanos_sifonados
 command.sifon.spawn.no_permission=You don't have permission.
 
 # Quest Phases
 quest.phase.inicio=§7Beginning - Seek the Sanctuary
-quest.phase.guardián_derrotado=§aPerjured Guardian §r§7defeated - Seek the Ruined Sanctuary
+quest.phase.guardian_derrotado=§aPerjured Guardian §r§7defeated - Seek the Ruined Sanctuary
 quest.phase.doncella_derrotada=§aCrystal Maiden §r§7defeated - Seek the Corrupted Forest
 quest.phase.roble_derrotado=§aDevoured Oak §r§7defeated - §dThe Siphon King is now accessible!
 quest.phase.rey_sifon_desbloqueado=§d§lSIPHON KING UNLOCKED§r - Use the key to access

@@ -24,7 +24,7 @@ const VERSION = [1, 0, 0];
 const ENTITY_IDS = {
   RASTRERO: `${NAMESPACE}:rastrero`,
   // Jefes principales (fase posterior)
-  GUARDIAN_PERJURO: `${NAMESPACE}:guardián_perjuro`,
+  GUARDIAN_PERJURO: `${NAMESPACE}:guardian_perjuro`,
   DONCELLA_CRISTAL: `${NAMESPACE}:doncella_cristal`,
   ROBLE_DEVOREADO: `${NAMESPACE}:roble_devorado`,
   REY_SIFON: `${NAMESPACE}:rey_sifon`,
@@ -40,16 +40,16 @@ const ENTITY_IDS = {
 // Sistema de misiones - Fases de progresión
 const QUEST_PHASES = {
   INICIO: "inicio",
-  GUARDIAN_DERROTADO: "guardián_derrotado",
+  GUARDIAN_DERROTADO: "guardian_derrotado",
   DONCELLA_DERROTADA: "doncella_derrotada",
   ROBLE_DERROTADO: "roble_derrotado",
   REY_SIFON_DESBLOQUEADO: "rey_sifon_desbloqueado",
   REY_SIFON_DERROTADO: "rey_sifon_derrotado"
 };
 
-// Ítems de progresión
+// Ítems de progresión (identificadores normalizados sin tildes para compatibilidad Bedrock)
 const PROGRESSION_ITEMS = {
-  ESGUIRLA_GUARDIAN: `${NAMESPACE}:esquirla_guardián`,
+  ESGUIRLA_GUARDIAN: `${NAMESPACE}:esquirla_guardian`,
   ESGUIRLA_DONCELLA: `${NAMESPACE}:esquirla_doncella`,
   ESGUIRLA_ROBLE: `${NAMESPACE}:esquirla_roble`,
   LLAVE_REY_SIFON: `${NAMESPACE}:llave_rey_sifon`,
@@ -60,7 +60,7 @@ const PROGRESSION_ITEMS = {
 // Dynamic property keys para tracking de progreso por jugador
 const PLAYER_PROPS = {
   QUEST_PHASE: `${NAMESPACE}:quest_phase`,
-  GUARDIAN_KILLED: `${NAMESPACE}:guardián_killed`,
+  GUARDIAN_KILLED: `${NAMESPACE}:guardian_killed`,
   DONCELLA_KILLED: `${NAMESPACE}:doncella_killed`,
   ROBLE_KILLED: `${NAMESPACE}:roble_killed`,
   REY_SIFON_KILLED: `${NAMESPACE}:rey_sifon_killed`,
@@ -112,7 +112,9 @@ function giveProgressionItem(player, itemId, count = 1) {
   if (!inventory) return false;
 
   const container = inventory.container;
-  const itemStack = world.getDimension("overworld").getItemStack(itemId, count);
+  // Crear ItemStack correctamente: new ItemStack(typeId, count)
+  const ItemStack = require("@minecraft/server").ItemStack;
+  const itemStack = new ItemStack(itemId, count);
   return container.addItem(itemStack);
 }
 

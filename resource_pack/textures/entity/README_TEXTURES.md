@@ -7,8 +7,8 @@ resource_pack/textures/
 ├── entity/
 │   ├── rastrero.png              # Textura base del Rastrero (64x64)
 │   ├── rastrero_corrupted.png    # Variante corrupta (64x64)
-│   ├── guardián_perjuro.png      # Jefe 1 - fase 1 (128x128)
-│   ├── guardián_perjuro_corrupted.png  # Jefe 1 - fase 2 (128x128)
+│   ├── guardian_perjuro.png      # Jefe 1 - fase 1 (128x128)
+│   ├── guardian_perjuro_corrupted.png  # Jefe 1 - fase 2 (128x128)
 │   ├── doncella_cristal.png      # Jefe 2 - base (128x128)
 │   ├── doncella_cristal_emissive.png # Jefe 2 - parte translúcida (128x128)
 │   ├── roble_devorado.png        # Jefe 3 - base (128x128)
@@ -24,7 +24,7 @@ resource_pack/textures/
 └── items/
     ├── rastrero_trophy.png
     ├── corrupted_essence.png
-    ├── esquirla_guardián.png
+    ├── esquirla_guardian.png
     ├── esquirla_doncella.png
     ├── esquirla_roble.png
     ├── llave_rey_sifon.png
@@ -66,7 +66,7 @@ Todas las criaturas siguen la misma lengua visual:
 - Corrupto: Más grietas, emissive violeta en zarcillos y cuernos
 - Zarcillos (corruption_tendril_1/2): Usan material "corrupted" con emissive
 
-### Guardaín Perjuro (128x128) - FASE POSTERIOR
+### Guardian Perjuro (128x128) - FASE POSTERIOR
 - Armadura mitad dorada/pulida, mitad negra/agrietada
 - Arma (espada/alabarda) partida visualmente
 - Fase 2: Más grietas, emissive más fuerte, armadura más rota
@@ -98,7 +98,7 @@ texture_sets/
 │   ├── height.png          # Height map (R = altura)
 │   ├── mer.png             # Metalness (R), Emissive (G), Roughness (B)
 │   └── subsurface.png      # Opcional: Subsurface scattering
-├── guardián_perjuro/
+├── guardian_perjuro/
 │   ├── normal.png
 │   ├── height.png
 │   ├── mer.png

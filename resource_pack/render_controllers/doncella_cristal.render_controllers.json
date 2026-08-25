@@ -1,0 +1,52 @@
+{
+  "format_version": "1.21.0",
+  "render_controllers": {
+    "controller.render.doncella_cristal": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        },
+        {
+          "crystal_shard_r": "Material.crystal_intact",
+          "crystal_shard_l": "Material.crystal_intact",
+          "crown_front": "Material.crystal_intact",
+          "crown_left": "Material.crystal_intact",
+          "crown_right": "Material.crystal_intact"
+        }
+      ],
+      "textures": [
+        "Texture.default",
+        {
+          "crystal_shard_r": "Texture.default",
+          "crystal_shard_l": "Texture.default",
+          "crown_front": "Texture.default",
+          "crown_left": "Texture.default",
+          "crown_right": "Texture.default"
+        },
+        {
+          "body": "Texture.phase2",
+          "head": "Texture.phase2",
+          "waist": "Texture.phase2",
+          "chest": "Texture.phase2",
+          "right_shoulder": "Texture.phase2",
+          "left_shoulder": "Texture.phase2",
+          "right_arm": "Texture.phase2",
+          "left_arm": "Texture.phase2",
+          "right_hand": "Texture.phase2",
+          "left_hand": "Texture.phase2",
+          "right_leg": "Texture.phase2",
+          "left_leg": "Texture.phase2",
+          "right_foot": "Texture.phase2",
+          "left_foot": "Texture.phase2"
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 1.0
+      }
+    }
+  }
+}

@@ -61,7 +61,7 @@ $palettes = @{
         light = [System.Drawing.Color]::FromArgb(187, 134, 252) # Violeta brillante #BB86FC
         accent = [System.Drawing.Color]::FromArgb(255, 215, 0)  # Dorado
     }
-    "esquirla_guardián" = @{
+    "esquirla_guardian" = @{
         base = [System.Drawing.Color]::FromArgb(255, 215, 0)    # Dorado brillante
         dark = [System.Drawing.Color]::FromArgb(200, 160, 0)    # Dorado oscuro
         light = [System.Drawing.Color]::FromArgb(255, 240, 150) # Amarillo muy claro

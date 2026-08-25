@@ -1,0 +1,221 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "sifon:guardian_perjuro",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false,
+      "scripts": {
+        "animate": [
+          "look_at_target"
+        ]
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.guardian_perjuro.idle",
+        "walk": "animation.guardian_perjuro.walk",
+        "attack_slash": "animation.guardian_perjuro.attack_slash",
+        "attack_overhead": "animation.guardian_perjuro.attack_overhead",
+        "attack_wild_swipe": "animation.guardian_perjuro.attack_wild_swipe",
+        "attack_slam": "animation.guardian_perjuro.attack_slam",
+        "phase_transition": "animation.guardian_perjuro.phase_transition",
+        "death": "animation.guardian_perjuro.death"
+      },
+      "animation_controllers": [
+        {
+          "controller.animation.guardian_perjuro.general": "controller.animation.guardian_perjuro.general"
+        }
+      ],
+      "geometry": {
+        "default": "geometry.guardian_perjuro"
+      },
+      "materials": {
+        "default": "entity_alphatest",
+        "corrupted": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/guardian_perjuro",
+        "phase2": "textures/entity/guardian_perjuro_phase2"
+      },
+      "spawn_egg": {
+        "base_color": "#c8a000",
+        "overlay_color": "#7b2cbf"
+      }
+    },
+    "component_groups": {
+      "sifon:phase_monitor": {
+        "minecraft:environment_sensor": {
+          "triggers": [
+            {
+              "filters": {
+                "test": "is_missing_health",
+                "subject": "self",
+                "value": 125
+              },
+              "event": "sifon:start_phase2"
+            }
+          ]
+        }
+      },
+      "sifon:phase2_transition": {
+        "minecraft:variant": {
+          "value": 1
+        },
+        "minecraft:movement": {
+          "value": 0.0
+        },
+        "minecraft:timer": {
+          "time": 2.5,
+          "looping": false,
+          "time_down_event": {
+            "event": "sifon:finish_phase2"
+          }
+        }
+      },
+      "sifon:phase2_engaged": {
+        "minecraft:mark_variant": {
+          "value": 1
+        },
+        "minecraft:movement": {
+          "value": 0.3
+        },
+        "minecraft:attack": {
+          "damage": 12
+        },
+        "minecraft:behavior.melee_attack": {
+          "priority": 2,
+          "speed_multiplier": 1.35,
+          "track_target": true,
+          "cooldown_time": 0.75
+        },
+        "minecraft:behavior.leap_at_target": {
+          "priority": 3,
+          "target_dist": 4.0,
+          "leap_power": 0.9,
+          "must_be_on_ground": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["guardian_perjuro", "boss", "monster", "sifon_corrupted"]
+      },
+      "minecraft:health": {
+        "value": 250,
+        "max": 250
+      },
+      "minecraft:boss": {
+        "should_darken_sky": false,
+        "hud_range": 55
+      },
+      "minecraft:collision_box": {
+        "width": 0.9,
+        "height": 2.2
+      },
+      "minecraft:movement": {
+        "value": 0.23
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": false,
+        "can_pass_doors": true,
+        "avoid_water": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:attack": {
+        "damage": 8
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:follow_range": {
+        "value": 40
+      },
+      "minecraft:persistent": {},
+      "minecraft:fire_immune": true,
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {},
+      "minecraft:nameable": {},
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 60 : 0"
+      },
+      "minecraft:loot": {
+        "table": "loot_tables/entities/guardian_perjuro.json"
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 1,
+        "set_alert_target": true
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 2,
+        "within_radius": 24,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 24
+          }
+        ],
+        "must_see": true
+      },
+      "minecraft:behavior.melee_attack": {
+        "priority": 3,
+        "speed_multiplier": 1.0,
+        "track_target": true,
+        "cooldown_time": 1.5
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 6,
+        "speed_multiplier": 0.8
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 7,
+        "look_distance": 10
+      },
+      "minecraft:behavior.random_look_around": {
+        "priority": 8
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": ["sifon:phase_monitor"]
+        }
+      },
+      "sifon:start_phase2": {
+        "remove": {
+          "component_groups": ["sifon:phase_monitor"]
+        },
+        "add": {
+          "component_groups": ["sifon:phase2_transition"]
+        },
+        "queue_command": {
+          "command": [
+            "playsound mob.ravager.roar @a[r=48]",
+            "particle minecraft:huge_explosion_emitter ~ ~1.2 ~"
+          ]
+        }
+      },
+      "sifon:finish_phase2": {
+        "remove": {
+          "component_groups": ["sifon:phase2_transition"]
+        },
+        "add": {
+          "component_groups": ["sifon:phase2_engaged"]
+        },
+        "queue_command": {
+          "command": [
+            "playsound mob.warden.soul_escape @a[r=48]"
+          ]
+        }
+      }
+    }
+  }
+}
