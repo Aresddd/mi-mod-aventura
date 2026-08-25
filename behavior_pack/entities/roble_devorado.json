@@ -84,6 +84,24 @@
         "minecraft:attack": {
           "damage": 14
         }
+      },
+      "sifon:root_timer_phase1": {
+        "minecraft:timer": {
+          "time": 10.0,
+          "looping": true,
+          "time_down_event": {
+            "event": "sifon:summon_roots_phase1"
+          }
+        }
+      },
+      "sifon:root_timer_phase2": {
+        "minecraft:timer": {
+          "time": 6.0,
+          "looping": true,
+          "time_down_event": {
+            "event": "sifon:summon_roots_phase2"
+          }
+        }
       }
     },
     "components": {
@@ -170,7 +188,7 @@
     "events": {
       "minecraft:entity_spawned": {
         "add": {
-          "component_groups": ["sifon:phase_monitor"]
+          "component_groups": ["sifon:phase_monitor", "sifon:root_timer_phase1"]
         },
         "queue_command": {
           "command": [
@@ -195,10 +213,10 @@
       },
       "sifon:finish_phase2": {
         "remove": {
-          "component_groups": ["sifon:phase2_transition"]
+          "component_groups": ["sifon:phase2_transition", "sifon:root_timer_phase1"]
         },
         "add": {
-          "component_groups": ["sifon:phase2_engaged"]
+          "component_groups": ["sifon:phase2_engaged", "sifon:root_timer_phase2"]
         },
         "queue_command": {
           "command": [

@@ -1,0 +1,130 @@
+{
+  "format_version": "1.21.0",
+  "animation_controllers": {
+    "controller.animation.roble_devorado.general": {
+      "initial_state": "idle",
+      "states": {
+        "idle": {
+          "animations": ["idle"],
+          "transitions": [
+            {
+              "move": "query.is_moving && query.variant == 0 && query.mark_variant == 0"
+            },
+            {
+              "move_phase2": "query.is_moving && (query.variant == 1 || query.mark_variant == 1)"
+            },
+            {
+              "summon_roots": "query.variant == 0 && query.mark_variant == 0 && query.has_target && query.attack_time > 0 && math.random(3) == 0"
+            },
+            {
+              "attack_roots_spread": "query.variant == 0 && query.mark_variant == 0 && query.has_target && query.attack_time > 0 && math.random(3) == 1"
+            },
+            {
+              "summon_roots_burst": "(query.variant == 1 || query.mark_variant == 1) && query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "attack_roots_spread": "(query.variant == 1 || query.mark_variant == 1) && query.has_target && query.attack_time > 0 && math.random(2) == 1"
+            },
+            {
+              "phase_transition": "query.variant == 1 && query.mark_variant == 0"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "move": {
+          "animations": ["move"],
+          "transitions": [
+            {
+              "idle": "!query.is_moving"
+            },
+            {
+              "summon_roots": "query.has_target && query.attack_time > 0 && math.random(3) == 0"
+            },
+            {
+              "attack_roots_spread": "query.has_target && query.attack_time > 0 && math.random(3) == 1"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "move_phase2": {
+          "animations": ["move"],
+          "transitions": [
+            {
+              "idle": "!query.is_moving"
+            },
+            {
+              "summon_roots_burst": "query.has_target && query.attack_time > 0 && math.random(2) == 0"
+            },
+            {
+              "attack_roots_spread": "query.has_target && query.attack_time > 0 && math.random(2) == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "summon_roots": {
+          "animations": ["summon_roots"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "summon_roots_burst": {
+          "animations": ["summon_roots_burst"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "attack_roots_spread": {
+          "animations": ["attack_roots_spread"],
+          "transitions": [
+            {
+              "idle": "query.attack_time <= 0 || !query.has_target"
+            },
+            {
+              "phase_transition": "query.variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "phase_transition": {
+          "animations": ["phase_transition"],
+          "transitions": [
+            {
+              "idle": "query.mark_variant == 1"
+            },
+            {
+              "death": "query.is_dead"
+            }
+          ]
+        },
+        "death": {
+          "animations": ["death"],
+          "transitions": []
+        }
+      }
+    }
+  }
+}

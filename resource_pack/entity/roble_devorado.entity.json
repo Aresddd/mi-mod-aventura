@@ -1,0 +1,44 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "sifon:roble_devorado",
+      "materials": {
+        "default": "entity_alphatest",
+        "bark_healthy": "entity_alphatest_emissive",
+        "bark_corrupted": "entity_alphatest_emissive",
+        "leaves_golden": "entity_alphatest_emissive",
+        "roots_corrupted": "entity_alphatest_emissive"
+      },
+      "textures": {
+        "default": "textures/entity/roble_devorado",
+        "phase2": "textures/entity/roble_devorado_phase2"
+      },
+      "geometry": {
+        "default": "geometry.roble_devorado"
+      },
+      "animations": {
+        "look_at_target": "animation.common.look_at_target",
+        "idle": "animation.roble_devorado.idle",
+        "move": "animation.roble_devorado.move",
+        "summon_roots": "animation.roble_devorado.summon_roots",
+        "summon_roots_burst": "animation.roble_devorado.summon_roots_burst",
+        "attack_roots_spread": "animation.roble_devorado.attack_roots_spread",
+        "phase_transition": "animation.roble_devorado.phase_transition",
+        "death": "animation.roble_devorado.death"
+      },
+      "animation_controllers": [
+        {
+          "general": "controller.animation.roble_devorado.general"
+        }
+      ],
+      "render_controllers": [
+        "controller.render.roble_devorado"
+      ],
+      "spawn_egg": {
+        "base_color": "#2e7d32",
+        "overlay_color": "#1b0000"
+      }
+    }
+  }
+}

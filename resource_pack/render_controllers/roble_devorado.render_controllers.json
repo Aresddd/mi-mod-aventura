@@ -1,0 +1,72 @@
+{
+  "format_version": "1.21.0",
+  "render_controllers": {
+    "controller.render.roble_devorado": {
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "Material.default"
+        },
+        {
+          "trunk": "Material.bark_healthy",
+          "branches_lower": "Material.bark_healthy",
+          "branch_n": "Material.bark_healthy",
+          "branch_s": "Material.bark_healthy",
+          "branch_e": "Material.bark_healthy",
+          "branch_w": "Material.bark_healthy",
+          "canopy_base": "Material.bark_healthy",
+          "canopy_top": "Material.bark_healthy"
+        },
+        {
+          "golden_leaves_n": "Material.leaves_golden",
+          "golden_leaves_s": "Material.leaves_golden",
+          "golden_leaves_e": "Material.leaves_golden",
+          "golden_leaves_w": "Material.leaves_golden"
+        },
+        {
+          "roots_base": "Material.roots_corrupted",
+          "root_n": "Material.roots_corrupted",
+          "root_s": "Material.roots_corrupted",
+          "root_e": "Material.roots_corrupted",
+          "root_w": "Material.roots_corrupted",
+          "root_n_tip": "Material.roots_corrupted",
+          "root_s_tip": "Material.roots_corrupted",
+          "root_e_tip": "Material.roots_corrupted",
+          "root_w_tip": "Material.roots_corrupted"
+        }
+      ],
+      "textures": [
+        "Texture.default",
+        {
+          "trunk": "Texture.phase2",
+          "branches_lower": "Texture.phase2",
+          "branch_n": "Texture.phase2",
+          "branch_s": "Texture.phase2",
+          "branch_e": "Texture.phase2",
+          "branch_w": "Texture.phase2",
+          "canopy_base": "Texture.phase2",
+          "canopy_top": "Texture.phase2",
+          "golden_leaves_n": "Texture.phase2",
+          "golden_leaves_s": "Texture.phase2",
+          "golden_leaves_e": "Texture.phase2",
+          "golden_leaves_w": "Texture.phase2",
+          "roots_base": "Texture.phase2",
+          "root_n": "Texture.phase2",
+          "root_s": "Texture.phase2",
+          "root_e": "Texture.phase2",
+          "root_w": "Texture.phase2",
+          "root_n_tip": "Texture.phase2",
+          "root_s_tip": "Texture.phase2",
+          "root_e_tip": "Texture.phase2",
+          "root_w_tip": "Texture.phase2"
+        }
+      ],
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 1.0,
+        "a": 1.0
+      }
+    }
+  }
+}

@@ -1,0 +1,271 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.roble_devorado",
+        "texture_width": 128,
+        "texture_height": 128,
+        "visible_bounds_width": 4,
+        "visible_bounds_height": 5,
+        "visible_bounds_offset": [0, 2, 0]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [0, 0, 0],
+          "cubes": [],
+          "children": [
+            {
+              "name": "trunk",
+              "pivot": [0, 0, 0],
+              "cubes": [
+                {
+                  "origin": [-4, 0, -4],
+                  "size": [8, 14, 8],
+                  "uv": [0, 0]
+                }
+              ],
+              "children": [
+                {
+                  "name": "branches_lower",
+                  "pivot": [0, 8, 0],
+                  "cubes": [
+                    {
+                      "origin": [-5, 7, -5],
+                      "size": [10, 8, 10],
+                      "uv": [0, 30]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "branch_n",
+                      "pivot": [0, 10, -6],
+                      "cubes": [
+                        {
+                          "origin": [-2, 7, -14],
+                          "size": [4, 6, 8],
+                          "uv": [40, 30]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "branch_s",
+                      "pivot": [0, 10, 6],
+                      "cubes": [
+                        {
+                          "origin": [-2, 7, 6],
+                          "size": [4, 6, 8],
+                          "uv": [40, 44]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "branch_e",
+                      "pivot": [6, 10, 0],
+                      "cubes": [
+                        {
+                          "origin": [6, 7, -2],
+                          "size": [8, 6, 4],
+                          "uv": [56, 30]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "branch_w",
+                      "pivot": [-6, 10, 0],
+                      "cubes": [
+                        {
+                          "origin": [-14, 7, -2],
+                          "size": [8, 6, 4],
+                          "uv": [56, 44]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "canopy_base",
+                  "pivot": [0, 16, 0],
+                  "cubes": [
+                    {
+                      "origin": [-6, 15, -6],
+                      "size": [12, 6, 12],
+                      "uv": [0, 48]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "canopy_top",
+                      "pivot": [0, 20, 0],
+                      "cubes": [
+                        {
+                          "origin": [-5, 18, -5],
+                          "size": [10, 8, 10],
+                          "uv": [0, 66]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "golden_leaves_n",
+                      "pivot": [0, 22, -8],
+                      "cubes": [
+                        {
+                          "origin": [-4, 20, -13],
+                          "size": [8, 6, 5],
+                          "uv": [48, 66]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "golden_leaves_s",
+                      "pivot": [0, 22, 8],
+                      "cubes": [
+                        {
+                          "origin": [-4, 20, 8],
+                          "size": [8, 6, 5],
+                          "uv": [48, 77]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "golden_leaves_e",
+                      "pivot": [8, 22, 0],
+                      "cubes": [
+                        {
+                          "origin": [8, 20, -4],
+                          "size": [5, 6, 8],
+                          "uv": [72, 66]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "golden_leaves_w",
+                      "pivot": [-8, 22, 0],
+                      "cubes": [
+                        {
+                          "origin": [-13, 20, -4],
+                          "size": [5, 6, 8],
+                          "uv": [72, 77]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "roots_base",
+              "pivot": [0, 0, 0],
+              "cubes": [
+                {
+                  "origin": [-5, -2, -5],
+                  "size": [10, 2, 10],
+                  "uv": [80, 0]
+                }
+              ],
+              "children": [
+                {
+                  "name": "root_n",
+                  "pivot": [0, 0, -6],
+                  "cubes": [
+                    {
+                      "origin": [-1.5, -1, -12],
+                      "size": [3, 2, 6],
+                      "uv": [96, 0]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "root_n_tip",
+                      "pivot": [0, 0, -12],
+                      "cubes": [
+                        {
+                          "origin": [-2, -1, -16],
+                          "size": [4, 2, 4],
+                          "uv": [104, 8]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "root_s",
+                  "pivot": [0, 0, 6],
+                  "cubes": [
+                    {
+                      "origin": [-1.5, -1, 6],
+                      "size": [3, 2, 6],
+                      "uv": [96, 12]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "root_s_tip",
+                      "pivot": [0, 0, 12],
+                      "cubes": [
+                        {
+                          "origin": [-2, -1, 12],
+                          "size": [4, 2, 4],
+                          "uv": [104, 16]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "root_e",
+                  "pivot": [6, 0, 0],
+                  "cubes": [
+                    {
+                      "origin": [6, -1, -1.5],
+                      "size": [6, 2, 3],
+                      "uv": [96, 24]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "root_e_tip",
+                      "pivot": [12, 0, 0],
+                      "cubes": [
+                        {
+                          "origin": [12, -1, -2],
+                          "size": [4, 2, 4],
+                          "uv": [104, 24]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "root_w",
+                  "pivot": [-6, 0, 0],
+                  "cubes": [
+                    {
+                      "origin": [-12, -1, -1.5],
+                      "size": [6, 2, 3],
+                      "uv": [96, 36]
+                    }
+                  ],
+                  "children": [
+                    {
+                      "name": "root_w_tip",
+                      "pivot": [-12, 0, 0],
+                      "cubes": [
+                        {
+                          "origin": [-16, -1, -2],
+                          "size": [4, 2, 4],
+                          "uv": [104, 32]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
